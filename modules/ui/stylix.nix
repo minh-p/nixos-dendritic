@@ -4,6 +4,15 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  flake.modules.homeManager.stylix = {
+    programs.firefox = {
+      enable = true;
+      profiles.my-profile = { };
+    };
+
+    stylix.targets.firefox.profileNames = [ "my-profile" ];
+  };
+
   flake.modules.nixos.stylix =
     { lib, pkgs, ... }:
     let

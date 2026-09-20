@@ -7,8 +7,23 @@
     in
     {
       imports = [ inputs.spicetify-nix.homeManagerModules.spicetify ];
+      xdg.desktopEntries.spotify = {
+        name = "Spotify";
+        comment = "Spotify Music Player";
+        exec = "env -u DISPLAY spotify";
+        icon = "${pkgs.spotify}/share/icons/hicolor/256x256/apps/spotify-client.png";
+        terminal = false;
+        categories = [
+          "Audio"
+          "Music"
+          "Player"
+          "AudioVideo"
+        ];
+        startupNotify = true;
+      };
       programs.spicetify = {
         enable = true;
+        wayland = true;
         # Handled by stylix
         # theme = spicePkgs.themes.catppuccin;
         # colorScheme = "macchiato";

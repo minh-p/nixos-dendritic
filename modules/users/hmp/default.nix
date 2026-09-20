@@ -14,6 +14,7 @@
           email = "minhisverynormal@gmail.com";
         };
         imports = with self.modules.homeManager; [
+          stylix
           git
           ghostty
           direnv
@@ -24,6 +25,7 @@
 
           ai
           base-emacs
+          firefox
           spotify
           vencord
           thunar
