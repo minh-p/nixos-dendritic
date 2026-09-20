@@ -35,6 +35,7 @@
               ];
             }
           ];
+          overview.backdrop-color = "#1a1b26";
           layout = {
             gaps = 5;
           };
@@ -164,5 +165,6 @@
     imports = [ inputs.niri.nixosModules.niri ];
     programs.niri.enable = true;
     programs.niri.package = pkgs.niri;
+    environment.systemPackages = [ pkgs.xwayland-satellite ];
   };
 }

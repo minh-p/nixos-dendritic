@@ -75,6 +75,8 @@
       flatpak
       studying
       tailscale
+      bashtop
+      zoom-us
     ];
   };
 
