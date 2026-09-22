@@ -31,6 +31,10 @@
           thunar
           library
           latex
+
+          audio-record
+          video-editing
+          speech-tools
         ];
       };
     }
