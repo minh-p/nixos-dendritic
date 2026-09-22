@@ -1,4 +1,11 @@
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+{
   flake.modules.homeManager.doom-emacs =
     {
       pkgs,
@@ -41,7 +48,6 @@
           run chmod -R u+w "$target"
         fi
       '';
-
       home.packages = [
         pkgs.ripgrep
         pkgs.cmake

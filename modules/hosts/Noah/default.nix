@@ -2,18 +2,18 @@
   systems = [ "x86_64-linux" ];
   nixpkgsStable = "26.05";
 
-  flake.modules.nixos.Aurelius = { pkgs, ... }: {
+  flake.modules.nixos.Noah = { pkgs, ... }: {
     nixpkgs.hostPlatform = "x86_64-linux";
     system.stateVersion = "24.05";
     time.timeZone = "America/Los_Angeles";
 
     myHost = {
-      name = "Aurelius";
+      name = "Noah";
       diskLabels = {
-        root = "nixos";
-        swap = "swap";
-        home = "home";
-        boot = "boot";
+        root = "NIXBOOT";
+        swap = "NIXSWAP";
+        home = "NIXHOME";
+        boot = "NIXROOT";
       };
       vendors = {
         cpu = "amd";
@@ -21,23 +21,23 @@
       };
       extraBootKernModules = [ "uinput" ];
       peripherals = {
-        touchpad = false;
+        touchpad = true;
         fingerprint = {
-          enable = false;
+          enable = true;
           driver = pkgs.libfprint-2-tod1-goodix-550a;
         };
         displays = [
           {
-            name = "DP-3";
+            name = "eDP-1";
           }
-          {
-            name = "HDMI-A-1";
-            rotation = 270;
-            position = {
-              x = 3440;
-              y = 0;
-            };
-          }
+          # {
+          #   name = "HDMI-A-1";
+          #   rotation = 270;
+          #   position = {
+          #     x = 3440;
+          #     y = 0;
+          #   };
+          # }
         ];
       };
     };
@@ -53,7 +53,7 @@
       grub
       silentboot
       networking
-      # fingerprint
+      fingerprint
       audio
       printing
 
@@ -80,7 +80,7 @@
     ];
   };
 
-  flake.nixosConfigurations.Aurelius = inputs.nixpkgs.lib.nixosSystem {
-    modules = [ self.modules.nixos.Aurelius ];
+  flake.nixosConfigurations.Noah = inputs.nixpkgs.lib.nixosSystem {
+    modules = [ self.modules.nixos.Noah ];
   };
 }

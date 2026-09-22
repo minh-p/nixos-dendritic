@@ -2,8 +2,13 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
 import QtQuick
+import QtQuick.Layouts
 
 import "clock"
+import "battery"
+import "tray"
+import "volume"
+import "wifi"
 
 Scope {
     id: bar
@@ -23,9 +28,38 @@ Scope {
                 right: true
             }
             implicitHeight: 30
-            ClockWidget {
-                anchors.centerIn: parent
-            }
+	    
+	    WifiWidget {
+		id: wifiWidget
+		anchors.left: clockWidget.right
+		anchors.verticalCenter: parent.verticalCenter
+		anchors.leftMargin: 10
+	    }
+	  
+	    VolumeWidget {
+		id: volumeWidget
+		anchors.right: batteryWidget.left
+		anchors.verticalCenter: parent.verticalCenter
+		anchors.rightMargin: 10
+	    }
+	    
+	    ClockWidget {
+		id: clockWidget
+		anchors.centerIn: parent
+	    }
+
+	    BatteryWidget {
+		id: batteryWidget
+		anchors.right: clockWidget.left
+		anchors.verticalCenter: parent.verticalCenter
+		anchors.rightMargin: 10
+	    }
+	    
+	    SystemTray {
+		anchors.left: wifiWidget.right
+		anchors.verticalCenter: parent.verticalCenter
+		anchors.leftMargin: 10
+	    }
         }
     }
     IpcHandler {

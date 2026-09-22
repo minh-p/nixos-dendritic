@@ -35,6 +35,7 @@
               ];
             }
           ];
+          overview.backdrop-color = "#1a1b26";
           layout = {
             gaps = 5;
           };
@@ -43,7 +44,7 @@
             keyboard = {
               xkb = {
                 layout = "us";
-                options = "caps:swapescape";
+                options = "ctrl:nocaps";
               };
               repeat-delay = 300;
               repeat-rate = 50;
@@ -70,7 +71,10 @@
               hotkey-overlay.title = "Spawn browser";
               action.spawn = "firefox";
             };
-            "Mod+F".action.fullscreen-window = [ ];
+            "Mod+F".action.maximize-column = [ ];
+            "Mod+M".action.maximize-window-to-edges = [ ];
+            "Mod+Shift+F".action.fullscreen-window = [ ];
+            "Mod+Ctrl+F".action.toggle-windowed-fullscreen = [ ];
             "Mod+D" = {
               hotkey-overlay.title = "Spawn launcher";
               action.spawn = [
@@ -123,6 +127,36 @@
             "Mod+Print".action.screenshot-screen = {
               show-pointer = false;
             };
+            "Print".action.screenshot = {
+              show-pointer = false;
+            };
+            "Ctrl+Print".action.screenshot-window = {
+              show-pointer = false;
+            };
+
+            # Horizontal: move the focused column.
+            "Mod+Ctrl+H".action.move-column-left = [ ];
+            "Mod+Ctrl+L".action.move-column-right = [ ];
+
+            # Vertical: reorder windows inside the current column.
+            "Mod+Ctrl+J".action.move-window-down = [ ];
+            "Mod+Ctrl+K".action.move-window-up = [ ];
+
+            # Left/right = adjacent monitor.
+            "Mod+Ctrl+Shift+H".action.move-window-to-monitor-left = [ ];
+            "Mod+Ctrl+Shift+L".action.move-window-to-monitor-right = [ ];
+
+            # Up/down = adjacent workspace on the current output.
+            "Mod+Ctrl+Shift+J".action.move-window-to-workspace-down = [ ];
+            "Mod+Ctrl+Shift+K".action.move-window-to-workspace-up = [ ];
+
+            # Width.
+            "Mod+Alt+H".action.set-column-width = "-10%";
+            "Mod+Alt+L".action.set-column-width = "+10%";
+
+            # Height.
+            "Mod+Alt+J".action.set-window-height = "+10%";
+            "Mod+Alt+K".action.set-window-height = "-10%";
           };
           hotkey-overlay = {
             hide-not-bound = true;
@@ -147,6 +181,20 @@
               draw-border-with-background = false;
               opacity = 0.95;
             }
+            {
+              matches = [
+                { app-id = "pavucontrol$"; }
+              ];
+
+              open-floating = true;
+            }
+            {
+              matches = [
+                { app-id = "firefox$"; }
+              ];
+
+              open-on-workspace = "2";
+            }
           ];
         };
       };
@@ -155,5 +203,6 @@
     imports = [ inputs.niri.nixosModules.niri ];
     programs.niri.enable = true;
     programs.niri.package = pkgs.niri;
+    environment.systemPackages = [ pkgs.xwayland-satellite ];
   };
 }

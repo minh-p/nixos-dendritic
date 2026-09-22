@@ -14,6 +14,7 @@
           email = "minhisverynormal@gmail.com";
         };
         imports = with self.modules.homeManager; [
+          stylix
           git
           ghostty
           direnv
@@ -23,9 +24,17 @@
           niri
 
           ai
-          doom-emacs
+          base-emacs
+          firefox
           spotify
           vencord
+          thunar
+          library
+          latex
+
+          audio-record
+          video-editing
+          speech-tools
         ];
       };
     }
