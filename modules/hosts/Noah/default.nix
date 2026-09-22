@@ -10,7 +10,7 @@
     myHost = {
       name = "Noah";
       diskLabels = {
-        root = "NIXROOT
+        root = "NIXROOT";
         swap = "NIXSWAP";
         home = "NIXHOME";
         boot = "NIXBOOT";
