@@ -19,7 +19,12 @@
         cpu = "amd";
         gpu = "amd";
       };
-      extraBootKernModules = [ "uinput" ];
+      extraBootKernModules = [
+        "uinput"
+        "thinkpad_acpi"
+        "i2c_hid"
+        "mt7921e"
+      ];
       peripherals = {
         touchpad = true;
         fingerprint = {
