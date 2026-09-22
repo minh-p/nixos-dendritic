@@ -61,6 +61,7 @@
       fingerprint
       audio
       printing
+      power-management
 
       greetd
       stylix
