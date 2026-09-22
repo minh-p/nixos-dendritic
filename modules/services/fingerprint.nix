@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.fingerprint = { pkgs, fprintdriver, ... }: {
+  flake.modules.nixos.fingerprint = { pkgs, config, ... }: {
     systemd.services.fprintd = {
       wantedBy = [ "multi-user.target" ];
       serviceConfig.Type = "simple";
@@ -15,12 +15,9 @@
     # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (Marked as broken as of 2025/04/23!) driver for 2016 ThinkPads
     #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a; # Goodix 550a driver (from Lenovo)
 
-    services.fprintd.tod.driver = fprintdriver;
-
     # however for focaltech 2808:a658, use fprintd with overidden package (without tod)
     # services.fprintd.package = pkgs.fprintd.override {
     #   libfprint = pkgs.libfprint-focaltech-2808-a658;
     # };
-
   };
 }
