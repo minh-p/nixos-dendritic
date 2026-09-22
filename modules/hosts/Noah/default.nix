@@ -10,10 +10,10 @@
     myHost = {
       name = "Noah";
       diskLabels = {
-        root = "NIXBOOT";
+        root = "NIXROOT
         swap = "NIXSWAP";
         home = "NIXHOME";
-        boot = "NIXROOT";
+        boot = "NIXBOOT";
       };
       vendors = {
         cpu = "amd";
@@ -83,6 +83,8 @@
       bashtop
       zoom-us
     ];
+
+    services.dbus.implementation = "dbus";
   };
 
   flake.nixosConfigurations.Noah = inputs.nixpkgs.lib.nixosSystem {
