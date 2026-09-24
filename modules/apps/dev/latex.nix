@@ -5,6 +5,7 @@
         ps: with ps; [
           dvisvgm
           dvipng
+          fontspec
 
           amsmath
           ulem
