@@ -8,6 +8,7 @@
       pkgs.jbig2enc
       pkgs.pngquant
       pkgs.poppler-utils
+      pkgs.unzip
     ];
   };
 }
