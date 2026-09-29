@@ -1,17 +1,12 @@
 {
   flake.modules.homeManager.latex = { pkgs, ... }: {
     home.packages = [
-      (pkgs.texliveBasic.withPackages (
+      (pkgs.texliveMedium.withPackages (
         ps: with ps; [
+          standalone
+          varwidth
           dvisvgm
-          dvipng
-          fontspec
-
-          amsmath
-          ulem
-          hyperref
-          wrapfig
-          capt-of
+          mylatexformat
         ]
       ))
     ];
