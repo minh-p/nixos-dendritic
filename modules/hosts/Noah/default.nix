@@ -62,6 +62,7 @@
       audio
       printing
       power-management
+      bluetooth
 
       greetd
       stylix
