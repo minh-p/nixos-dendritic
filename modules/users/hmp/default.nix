@@ -20,6 +20,7 @@
           direnv
           ohmyzsh
           pfetch
+          clock-rs
 
           niri
 
