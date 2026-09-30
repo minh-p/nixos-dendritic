@@ -5,6 +5,7 @@
     environment.systemPackages = [
       pkgs.drawy
       pkgs.xournalpp
+      pkgs.rnote
     ];
   };
 }
