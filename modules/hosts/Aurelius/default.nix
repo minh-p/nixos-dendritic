@@ -64,7 +64,7 @@
       thunar
 
       firefox
-      nvim
+      # nvim
       emacs
 
       gpu-screen-recorder

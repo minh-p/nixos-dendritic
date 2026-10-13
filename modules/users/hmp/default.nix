@@ -21,6 +21,7 @@
           ohmyzsh
           pfetch
           clock-rs
+	  nvim
 
           niri
 
